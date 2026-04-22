@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Seat Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="header-top">
+            <img src="assets/parsons_header.svg" alt="Parsons Logo">
+        </div>
+        <div class="header-bottom">
+            <p><a href="index.html">Seat Finder</a></p>
+        </div>
+    </div>
+
+
+    <div class="results-container">
+        <div>
+            <select class="sort" size="1">
+                <option>Sort by: Relevance</option>
+                <option>Sort by: Nearest</option>
+            </select>
+        </div>
+
+        <div class="allresults">
+            <div class="result">
+                <img src="assets/sampleimg.png" alt="">
+                <h3 class="building">building</h3>
+                <p class="location">location</p>
+                <p class="hours">hours</p>
+                <p class="capacity">capacity</p>
+                <button class="char">char <img src="assets/char2.png" alt="checked"></button>
+                <button class="button1 resultbutton"><a href="booking.html">Book Now</a></button>
+            </div>
+            <div class="result">
+                <img src="assets/sampleimg.png" alt="">
+                <h3 class="building">building</h3>
+                <p class="location">location</p>
+                <p class="hours">hours</p>
+                <p class="capacity">capacity</p>
+                <button class="char">char <img src="assets/char2.png" alt="checked"></button>
+                <button class="button1 resultbutton"><a href="booking.html">Book Now</a></button>
+            </div>
+            <div class="result">
+                <img src="assets/sampleimg.png" alt="">
+                <h3 class="building">building</h3>
+                <p class="location">location</p>
+                <p class="hours">hours</p>
+                <p class="capacity">capacity</p>
+                <button class="char">char <img src="assets/char2.png" alt="checked"></button>
+                <button class="button1 resultbutton"><a href="booking.html">Book Now</a></button>
+            </div>
+            <div class="result">
+                <img src="assets/sampleimg.png" alt="">
+                <h3 class="building">building</h3>
+                <p class="location">location</p>
+                <p class="hours">hours</p>
+                <p class="capacity">capacity</p>
+                <button class="char">char <img src="assets/char2.png" alt="checked"></button>
+                <button class="button1 resultbutton"><a href="booking.html">Book Now</a></button>
+            </div>
+            <div class="result">
+                <img src="assets/sampleimg.png" alt="">
+                <h3 class="building">building</h3>
+                <p class="location">location</p>
+                <p class="hours">hours</p>
+                <p class="capacity">capacity</p>
+                <button class="char">char <img src="assets/char2.png" alt="checked"></button>
+                <button class="button1 resultbutton"><a href="booking.html">Book Now</a></button>
+            </div>
+            <div class="result">
+                <img src="assets/sampleimg.png" alt="">
+                <h3 class="building">building</h3>
+                <p class="location">location</p>
+                <p class="hours">hours</p>
+                <p class="capacity">capacity</p>
+                <button class="char">char <img src="assets/char2.png" alt="checked"></button>
+                <button class="button1 resultbutton"><a href="booking.html">Book Now</a></button>
+            </div>
+            <div class="result">
+                <img src="assets/sampleimg.png" alt="">
+                <h3 class="building">building</h3>
+                <p class="location">location</p>
+                <p class="hours">hours</p>
+                <p class="capacity">capacity</p>
+                <button class="char">char <img src="assets/char2.png" alt="checked"></button>
+                <button class="button1 resultbutton"><a href="booking.html">Book Now</a></button>
+            </div>
+            <div class="result">
+                <img src="assets/sampleimg.png" alt="">
+                <h3 class="building">building</h3>
+                <p class="location">location</p>
+                <p class="hours">hours</p>
+                <p class="capacity">capacity</p>
+                <button class="char">char <img src="assets/char2.png" alt="checked"></button>
+                <button class="button1 resultbutton"><a href="booking.html">Book Now</a></button>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <script src="script.js"></script>
+    <script>
+
+    const data = [
+    { location: "Alvin", room: 518, day: 4, timeStart: "17:30", timeEnd: "18:45", sound: 1, type: "C", capacity: 20 },
+    { location: "Alvin", room: 517, day: 3, timeStart: "9:00", timeEnd: "11:40", sound: 2, type: "C", capacity: 45 },
+    { location: "Alvin", room: 106, day: 4, timeStart: "16:00", timeEnd: "17:15", sound: 3, type: "B, C", capacity: 35 },
+    { location: "Alvin", room: 601, day: 3, timeStart: "9:00", timeEnd: "11:40", sound: 1, type: "C", capacity: 15 },
+
+    { location: "Arnhold", room: 202, day: 6, timeStart: "9:00", timeEnd: "11:40", sound: 2, type: "B, C", capacity: 20 },
+    { location: "Arnhold", room: 930, day: 6, timeStart: "10:00", timeEnd: "11:40", sound: 3, type: "C", capacity: 45 },
+    { location: "Arnhold", room: 930, day: 2, timeStart: "10:00", timeEnd: "11:40", sound: 1, type: "B", capacity: 30 },
+    { location: "Arnhold", room: 450, day: 6, timeStart: "10:00", timeEnd: "11:40", sound: 2, type: "A, C", capacity: 40 },
+
+    { location: "UC", room: 100, day: 3, timeStart: "12:20", timeEnd: "13:35", sound: 3, type: "C", capacity: 20 },
+    { location: "UC", room: 617, day: [4, 6], timeStart: "9:00", timeEnd: "11:40", sound: 1, type: "C", capacity: 60 },
+    { location: "UC", room: 617, day: [3, 6], timeStart: "16:00", timeEnd: "18:40", sound: 2, type: "C", capacity: 15 },
+    { location: "UC", room: 205, day: 6, timeStart: "4:00", timeEnd: "18:40", sound: 3, type: "C", capacity: 25 },
+
+    { location: "AlbertVera", room: 600, day: 4, timeStart: "19:00", timeEnd: "21:40", sound: 1, type: "B", capacity: 30 },
+    { location: "AlbertVera", room: 912, day: 2, timeStart: "12:10", timeEnd: "14:50", sound: 2, type: "C", capacity: 50 },
+    { location: "AlbertVera", room: 908, day: 6, timeStart: "12:10", timeEnd: "14:50", sound: 3, type: "A, C", capacity: 20 },
+    { location: "AlbertVera", room: 908, day: [2, 5], timeStart: "9:00", timeEnd: "11:40", sound: 1, type: "", capacity: 25 },
+
+    { location: "Sheila", room: 502, day: 4, timeStart: "12:10", timeEnd: "14:50", sound: 2, type: "C", capacity: 35 },
+    { location: "Sheila", room: 501, day: 4, timeStart: "9:00", timeEnd: "11:40", sound: 3, type: "A, C", capacity: 20 },
+    { location: "Sheila", room: 501, day: 2, timeStart: "16:00", timeEnd: "18:40", sound: 1, type: "C", capacity: 24 },
+    { location: "Sheila", room: 501, day: 3, timeStart: "16:00", timeEnd: "18:40", sound: 2, type: "C", capacity: 45 }
+    ];
+
+        // const roomMap = {
+        //     A: "Lecture Hall",
+        //     B: "Stools",
+        //     C: "Whiteboard"
+        // };
+
+        // const dayMap = {
+        //     1: "Sunday",
+        //     2: "Monday",
+        //     3: "Tuesday",
+        //     4: "Wednesday",
+        //     5: "Thursday",
+        //     6: "Friday",
+        //     7: "Saturday"
+        // };
+
+
+    </script>
+</body>
+
+</html>

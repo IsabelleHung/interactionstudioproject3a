@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/d/embed?mid=1qj7YrowdshvhFGSEAO06N-kVspuh1ps&ehbc=2E312F"
+        ></iframe>
+
+        <form class="map-form" action="/action_page.php">
+            <label for="bd">Select building:</label>
+            <select name="buildings" id="bd" size="1" multiple>
+                <option value="bd1">University Center (1 min. walk)</option>
+                <option value="bd2">Arnhold Hall (3 min. walk)</option>
+                <option value="bd3">Alvin Johnson / Kaplan Hall (3 min. walk)</option>
+                <option value="bd4">Albert and Vera List Academic Center (2 min. walk)</option>
+                <option value="bd5">Sheila C. Johnson Design Center (0 min. walk)</option>
+            </select>
+            <button class="button_map button1"type="submit"><a href="results.html">Search</a></button>
+            <!-- <input class="button_map" type="submit" value="Search"> -->
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script>
+
+    const form = document.querySelector(".map-form");
+
+    form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const select = document.getElementById("bd");
+
+    // get all selected values
+    const selectedValues = Array.from(select.selectedOptions).map(option => option.value);
+
+    // get all selected labels (optional)
+    const selectedText = Array.from(select.selectedOptions).map(option => option.text);
+
+    console.log("Values:", selectedValues);
+    console.log("Labels:", selectedText);
+});
+    </script>
+</body>
+</html>

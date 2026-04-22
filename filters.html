@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Filters</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="header-top">
+            <img src="assets/parsons_header.svg" alt="Parsons Logo">
+        </div>
+        <div class="header-bottom">
+            <p><a href="index.html">Seat Finder</a></p>
+        </div>
+    </div>
+
+    <form class="filter-form">
+        <div class="filter-container">
+            <div>
+                <h3>Building</h3>
+                <select class="building" size="1" id="building" multiple>
+                    <option>University Center</option>
+                    <option>Arnold Hall</option>
+                    <option>Alvin Johnson/J.M. Kaplan Hall</option>
+                    <option>Albert and Vera List Academic Center</option>
+                    <option>Sheila C. Johnson Design Center</option>
+                </select>
+            </div>
+
+            <div class="noise_container">
+                <h3>Noise Level</h3>
+                <input class="noise_slider" type="range" min="1" max="3" id="noise" value="1">
+                <div class="slider_label">
+                    <p>1</p>
+                    <p>3</p>
+                </div>
+            </div>
+
+            <div class="hours_container">
+                <h3>Hours</h3>
+                <input class="hours_slider" type="range" min="1" max="8" id="hours" value="1">
+                <div class="slider_label">
+                    <p>1</p>
+                    <p>8</p>
+                </div>
+            </div>
+
+            <div class="char_container">
+                <h3>Characteristics</h3>
+                <button type="button" class="button2">
+                    <p>Lecture Hall</p>
+                    <img src="assets/char1.png" alt="unchecked">
+                </button>
+
+                <button type="button" class="button2">
+                    <p>Stool Seating</p>
+                    <img src="assets/char1.png" alt="unchecked">
+                </button>
+
+                <button type="button" class="button2">
+                    <p>Whiteboard</p>
+                    <img src="assets/char1.png" alt="unchecked">
+                </button>
+            </div>
+            <button class="button1" type="submit"><a href="results.html">Search</a></button>
+            <!-- <button class="button1" type="submit"><a href="results.html">Find Booking</a></button> -->
+        </div>
+    </form>
+    <script src="script.js"></script>
+    <script>
+        const buttons = document.querySelectorAll('.button2');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+            });
+        });
+
+
+        console.log("SCRIPT RUNNING");
+        document.addEventListener("DOMContentLoaded", () => {
+            const form2 = document.querySelector(".filter-form");
+
+            if (!form2) return;
+
+            form2.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const buildings = Array.from(document.getElementById("building").selectedOptions)
+                    .map(opt => opt.text);
+
+                const noise = document.getElementById("noise").value;
+                const hours = document.getElementById("hours").value;
+
+                const characteristics = Array.from(document.querySelectorAll(".button2.active"))
+                    .map(btn => btn.innerText);
+
+                console.log({ buildings, noise, hours, characteristics });
+            });
+        });
+        console.log("FORM SUBMITTED");
+    </script>
+
+</body>
