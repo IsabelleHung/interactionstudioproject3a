@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Map</title>
+    <title>Find Your Seat</title>
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -14,7 +14,7 @@
 
         <form class="map-form" action="/action_page.php">
             <label for="bd">Select building:</label>
-            <select name="buildings" id="bd" size="1" multiple>
+            <select name="buildings" id="bd" size="1">
                 <option value="bd1">University Center (1 min. walk)</option>
                 <option value="bd2">Arnhold Hall (3 min. walk)</option>
                 <option value="bd3">Alvin Johnson / Kaplan Hall (3 min. walk)</option>
@@ -35,10 +35,7 @@
 
     const select = document.getElementById("bd");
 
-    // get all selected values
     const selectedValues = Array.from(select.selectedOptions).map(option => option.value);
-
-    // get all selected labels (optional)
     const selectedText = Array.from(select.selectedOptions).map(option => option.text);
 
     console.log("Values:", selectedValues);

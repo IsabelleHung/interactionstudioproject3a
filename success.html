@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Seat Finder</title>
+    <title>Find Your Seat</title>
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -14,7 +14,7 @@
             <img src="assets/parsons_header.svg" alt="Parsons Logo">
         </div>
         <div class="header-bottom">
-            <p><a href="index.html">Seat Finder</a></p>
+            <p><a href="index.html">Find Your Seat</a></p>
         </div>
     </div>
 
@@ -27,18 +27,21 @@
             <p class="location">66 W 12th St</p>
             <p class="capacity">Capacity 28</p>
             <p class="hours">2 Hours</p>
-            <button class="char">Stools <img src="assets/char2.png" alt="checked"></button>
+            <div class="char-list">
+                <span class="char">Stool Seating<img src="assets/char2.png" alt="checked"></span>
+                <span class="char">Group Activities<img src="assets/char2.png" alt="checked"></span>
+            </div>
         </div>
 
 
-        <form action="/action_page.php" class="info">
+        <form class="info success-card">
             <!-- <label for="fname">Full Name</label>
             <input type="text" id="fname" name="fname"><br><br>
             <label for="email">Email</label>
             <input type="text" id="email" name="email"><br><br> -->
             <!-- <input type="submit" value="Book Now" class="button1 bookingbutton"> -->
-            <h2>SUCCESS!</h2>
-             <button class="button_map button1"type="submit"><a href="index.html">Home</a></button>
+            <h2>Success!</h2>
+            <a class="button_map button1 success-home" href="index.html">Home</a>
         </form>
     </div>
 

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Filters</title>
+    <title>Find Your Seat</title>
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -14,7 +14,7 @@
             <img src="assets/parsons_header.svg" alt="Parsons Logo">
         </div>
         <div class="header-bottom">
-            <p><a href="index.html">Seat Finder</a></p>
+            <p><a href="index.html">Find Your Seat</a></p>
         </div>
     </div>
 
@@ -22,7 +22,7 @@
         <div class="filter-container">
             <div>
                 <h3>Building</h3>
-                <select class="building" size="1" id="building" multiple>
+                <select class="building" size="1" id="building">
                     <option>University Center</option>
                     <option>Arnold Hall</option>
                     <option>Alvin Johnson/J.M. Kaplan Hall</option>
@@ -32,20 +32,26 @@
             </div>
 
             <div class="noise_container">
-                <h3>Noise Level</h3>
+                <div class="slider_header">
+                    <h3>Noise Level</h3>
+                    <p id="noise-value">Quiet</p>
+                </div>
                 <input class="noise_slider" type="range" min="1" max="3" id="noise" value="1">
                 <div class="slider_label">
-                    <p>1</p>
-                    <p>3</p>
+                    <p>Quiet</p>
+                    <p>Lively</p>
                 </div>
             </div>
 
             <div class="hours_container">
-                <h3>Hours</h3>
+                <div class="slider_header">
+                    <h3>Hours</h3>
+                    <p id="hours-value">1 hour</p>
+                </div>
                 <input class="hours_slider" type="range" min="1" max="8" id="hours" value="1">
                 <div class="slider_label">
-                    <p>1</p>
-                    <p>8</p>
+                    <p>1 hour</p>
+                    <p>8 hours</p>
                 </div>
             </div>
 
@@ -65,6 +71,41 @@
                     <p>Whiteboard</p>
                     <img src="assets/char1.png" alt="unchecked">
                 </button>
+
+                <button type="button" class="button2">
+                    <p>Piano</p>
+                    <img src="assets/char1.png" alt="unchecked">
+                </button>
+
+                <button type="button" class="button2">
+                    <p>Group Activities</p>
+                    <img src="assets/char1.png" alt="unchecked">
+                </button>
+
+                <button type="button" class="button2">
+                    <p>Music Jamming</p>
+                    <img src="assets/char1.png" alt="unchecked">
+                </button>
+
+                <button type="button" class="button2">
+                    <p>Silent Disco</p>
+                    <img src="assets/char1.png" alt="unchecked">
+                </button>
+
+                <button type="button" class="button2">
+                    <p>Projector Setup</p>
+                    <img src="assets/char1.png" alt="unchecked">
+                </button>
+
+                <button type="button" class="button2">
+                    <p>Window Seats</p>
+                    <img src="assets/char1.png" alt="unchecked">
+                </button>
+
+                <button type="button" class="button2">
+                    <p>Floor Space</p>
+                    <img src="assets/char1.png" alt="unchecked">
+                </button>
             </div>
             <button class="button1" type="submit"><a href="results.html">Search</a></button>
             <!-- <button class="button1" type="submit"><a href="results.html">Find Booking</a></button> -->
@@ -72,37 +113,71 @@
     </form>
     <script src="script.js"></script>
     <script>
-        const buttons = document.querySelectorAll('.button2');
+        var buttons = document.querySelectorAll(".button2");
+        var i;
 
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                btn.classList.toggle('active');
+        for (i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function () {
+                this.classList.toggle("active");
             });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var form2 = document.querySelector(".filter-form");
+            var noiseSlider = document.getElementById("noise");
+            var hoursSlider = document.getElementById("hours");
+            var noiseValue = document.getElementById("noise-value");
+            var hoursValue = document.getElementById("hours-value");
+
+            function updateSliderLabels() {
+                if (noiseSlider.value === "1") {
+                    noiseValue.textContent = "Quiet";
+                } else if (noiseSlider.value === "2") {
+                    noiseValue.textContent = "Conversation";
+                } else {
+                    noiseValue.textContent = "Lively";
+                }
+
+                if (hoursSlider.value === "1") {
+                    hoursValue.textContent = "1 hour";
+                } else {
+                    hoursValue.textContent = hoursSlider.value + " hours";
+                }
+            }
+
+            noiseSlider.addEventListener("input", updateSliderLabels);
+            hoursSlider.addEventListener("input", updateSliderLabels);
+            updateSliderLabels();
+
+            if (form2) {
+                form2.addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    var buildingSelect = document.getElementById("building");
+                    var buildings = [];
+                    var activeButtons = document.querySelectorAll(".button2.active");
+                    var characteristics = [];
+                    var noise = document.getElementById("noise").value;
+                    var hours = document.getElementById("hours").value;
+                    var j;
+
+                    for (j = 0; j < buildingSelect.selectedOptions.length; j++) {
+                        buildings.push(buildingSelect.selectedOptions[j].text);
+                    }
+
+                    for (j = 0; j < activeButtons.length; j++) {
+                        characteristics.push(activeButtons[j].innerText);
+                    }
+
+                    console.log({
+                        buildings: buildings,
+                        noise: noise,
+                        hours: hours,
+                        characteristics: characteristics
+                    });
+                });
+            }
         });
-
-
-        console.log("SCRIPT RUNNING");
-        document.addEventListener("DOMContentLoaded", () => {
-            const form2 = document.querySelector(".filter-form");
-
-            if (!form2) return;
-
-            form2.addEventListener("submit", function (event) {
-                event.preventDefault();
-
-                const buildings = Array.from(document.getElementById("building").selectedOptions)
-                    .map(opt => opt.text);
-
-                const noise = document.getElementById("noise").value;
-                const hours = document.getElementById("hours").value;
-
-                const characteristics = Array.from(document.querySelectorAll(".button2.active"))
-                    .map(btn => btn.innerText);
-
-                console.log({ buildings, noise, hours, characteristics });
-            });
-        });
-        console.log("FORM SUBMITTED");
     </script>
 
 </body>
